@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { site } from '../data/site';
+import { projects } from '../data/projects';
+const services = [
+  { index: '01', title: 'Website Development', detail: 'Website responsif dan pengalaman pengguna yang berfokus pada tujuan bisnis.' },
+  { index: '02', title: 'AI Workflow & Automation', detail: 'Eksplorasi otomasi untuk menyederhanakan proses manual sesuai kebutuhan dan kelayakan teknis.' },
+  { index: '03', title: 'Digital Products', detail: 'Prototipe dan sistem yang dibangun agar mudah diuji serta dikembangkan.' },
+];
+const steps = ['Discover', 'Design', 'Build', 'Validate', 'Deliver'];
+---
+<BaseLayout title="Rakit Nalar Studio — Website & Digital Experiences">
+  <section class="hero section-pad" aria-labelledby="hero-heading">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{site.heroEyebrow}</p>
+        <h1 id="hero-heading">Ide yang bagus layak <em>dibangun dengan baik.</em></h1>
+        <p class="lead">{site.heroDescription}</p>
+        <div class="actions"><a class="button button-dark" href="#work">Jelajahi karya <span aria-hidden="true">↘</span></a><a class="button button-outline" href="#contact">Diskusikan proyek <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-note">Studio independen · Berbasis eksplorasi dan dokumentasi terbuka · Belum menampilkan proyek klien berbayar.</p>
+      </div>
+      <div class="hero-panel" aria-hidden="true">
+        <div class="panel-top">DESIGN WITH INTENTION <span>RN / 001</span></div>
+        <div class="panel-orbit"><span>IDEA</span><b>→</b><span>DESIGN</span><b>→</b><span>BUILD</span></div>
+        <div class="panel-symbol">r<span>.</span>n</div>
+        <div class="panel-bottom">THOUGHTFUL DIGITAL SYSTEMS <span>EST. 2026</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section-pad work-section" id="work" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-heading">Bukan cuma hasil. <em>Ada proses di baliknya.</em></h2></div><p>Studi kasus pertama kami adalah proyek independen, dengan kode, pengujian, dan riwayat pengembangan yang bisa diperiksa.</p></div>
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </section>
+  <section class="section-pad services-section" id="services" aria-labelledby="services-heading">
+    <div class="container"><p class="eyebrow">02 / CAPABILITIES</p><div class="section-heading"><h2 id="services-heading">Membangun lebih dari <em>sekadar tampilan.</em></h2><p>Berikut cakupan layanan yang ingin dikembangkan; detail, kelayakan, dan biaya diputuskan per proyek.</p></div><div class="services-grid">{services.map((service) => <article class="service"><span class="service-index">{service.index}</span><h3>{service.title}</h3><p>{service.detail}</p></article>)}</div></div>
+  </section>
+  <section class="section-pad process-section" id="process" aria-labelledby="process-heading">
+    <div class="container"><p class="eyebrow">03 / METHOD</p><div class="section-heading"><h2 id="process-heading">Cara kerja yang <em>dapat ditelusuri.</em></h2><p>Dari ide hingga handoff, setiap langkah diarahkan untuk menghasilkan pekerjaan yang jelas dan dapat diuji.</p></div><ol class="process-list">{steps.map((step,index) => <li><span>{String(index+1).padStart(2,'0')}</span><strong>{step}</strong></li>)}</ol></div>
+  </section>
+  <section class="section-pad about-section" id="about" aria-labelledby="about-heading"><div class="container about-grid"><p class="eyebrow">04 / BEHIND THE STUDIO</p><div><h2 id="about-heading">Independen secara bentuk. <em>Serius dalam pengerjaan.</em></h2><p>Rakit Nalar Studio adalah identitas kerja untuk membangun website dan mengeksplorasi teknologi kreatif. Identitas pemilik studio dan informasi kontak akan ditampilkan setelah disetujui.</p><p>Ruang Reka menjadi titik awal: proyek fiktif yang dikembangkan secara bertahap dengan pengujian dan dokumentasi GitHub.</p></div></div></section>
+  <ContactCTA />
+</BaseLayout>

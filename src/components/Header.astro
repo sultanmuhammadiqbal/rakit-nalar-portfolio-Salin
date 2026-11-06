@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+---
+<header class="header" id="top">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Rakit Nalar Studio — beranda">
+      <span class="logo-mark" aria-hidden="true">r<span>.</span>n</span>
+      <span class="logo-label">RAKIT NALAR <small>INDEPENDENT STUDIO</small></span>
+    </a>
+    <nav aria-label="Navigasi utama" class="navigation">
+      {site.nav.map((item) => <a href={item.href}>{item.text}</a>)}
+      <a class="nav-contact" href="/#contact">Diskusi proyek <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>

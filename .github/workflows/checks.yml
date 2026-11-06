@@ -1,0 +1,37 @@
+name: Portfolio checks
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, 'feat/**']
+permissions:
+  contents: read
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Check source contracts
+        run: npm test
+      - name: Astro type and template checks
+        run: npm run check
+      - name: Build static site
+        run: npm run build
+      - name: Confirm output files
+        run: |
+          test -f dist/index.html
+          test -f dist/work/ruang-reka/index.html
+          grep -q 'noindex,nofollow' dist/index.html
+          grep -q 'noindex,nofollow' dist/work/ruang-reka/index.html
+      - name: Upload compiled preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rakit-nalar-static-preview
+          path: dist/
+          if-no-files-found: error

@@ -1,0 +1,14 @@
+---
+import { site } from '../data/site';
+---
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="container contact-inner">
+    <p class="eyebrow light">LET'S CONNECT</p>
+    <h2 id="contact-heading">Punya ide yang ingin diwujudkan?</h2>
+    <p>Diskusi awal membantu memahami tujuan, kebutuhan, dan ruang lingkup proyek sebelum memilih solusi teknis.</p>
+    {site.contact.enabled && site.contact.email
+      ? <a class="button button-lime" href={`mailto:${site.contact.email}`}>Kirim email <span aria-hidden="true">↗</span></a>
+      : <p class="contact-disabled">Kontak profesional akan diaktifkan setelah informasi bisnis diverifikasi. Untuk sekarang, lihat pekerjaan dan prosesnya melalui GitHub.</p>
+    }
+  </div>
+</section>

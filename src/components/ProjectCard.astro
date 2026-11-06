@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  category: string;
+  href: string;
+  chips: readonly string[];
+}
+const { title, subtitle, category, href, chips } = Astro.props;
+---
+<article class="project-card">
+  <div class="project-illustration" aria-hidden="true">
+    <div class="project-window"><div class="window-chrome">● ● ● <span>ruang-reka / demo</span></div><div class="window-brand">RR / INTERIOR</div><div class="window-title">Ruang terasa<br />seperti <i>rumah.</i></div><div class="window-pill">Explore spaces ↗</div></div>
+    <div class="floating-pill">CONFIGURATOR <strong>LIVE PREVIEW</strong></div>
+  </div>
+  <div class="project-info">
+    <p class="eyebrow">{category}</p>
+    <h3>{title}</h3>
+    <p>{subtitle}</p>
+    <div class="chip-list">{chips.map((chip) => <span class="chip">{chip}</span>)}</div>
+    <a href={href} class="text-link">Baca studi kasus <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
