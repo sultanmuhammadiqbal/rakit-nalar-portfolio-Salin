@@ -39,8 +39,8 @@
 .about-editorial{display:grid;grid-template-columns:1fr 1.65fr;gap:clamp(30px,7vw,100px)}
 .about-editorial h2{max-width:760px}
 .about-editorial p:not(.eyebrow){font-size:1rem;color:var(--muted);line-height:1.8}
-.about-glyph{display:inline-block;font-size:clamp(90px,13vw,190px);font-weight:900;letter-spacing:-.14em;line-height:1;color:#bacfb0;margin:60px 0}
-.about-glyph span{color:#8eaf7c}
+.about-glyph{display:inline-block;font-size:clamp(90px,13vw,190px);font-weight:900;letter-spacing:-.14em;line-height:1;color:#4e6e50;margin:60px 0}
+.about-glyph span{color:#426c3b}
 .work-footer{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;padding-top:24px;font-size:.83rem}
 .work-footer p{margin:0;max-width:620px;color:#44604b}
 @media(max-width:1000px){.capabilities-grid{grid-template-columns:1fr}.capability-card{min-height:250px}.capability-card h3{margin:35px 0 10px}.about-editorial{grid-template-columns:1fr}.about-glyph{margin:5px 0 10px;font-size:90px}.proof-inner{justify-content:center;min-height:70px}.visual-wordmark{font-size:clamp(90px,17vw,135px)}}
