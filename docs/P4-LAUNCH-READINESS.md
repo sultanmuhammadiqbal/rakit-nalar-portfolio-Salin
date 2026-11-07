@@ -4,7 +4,7 @@
 
 ## Evidence and verification limits
 
-Basis audit: source Astro dan CI history yang diperiksa sepanjang P1–P3, termasuk CI P3 run `42331348086` pada HEAD `55dc9b5` sebelum PR #2 merged; screenshot full-page P3 mobile 375 px dan desktop 1280 px dari artifact run tersebut. PR #2 kemudian merged ke main sebagai `7c36bca`. Audit P4 terbaru belum dilaksanakan di GitHub karena akses konektor sedang terganggu pada saat dokumen ini dibuat. Jangan menafsirkan hasil P3 sebagai bukti CI P4.
+Basis audit: source Astro dan CI history yang diperiksa sepanjang P1–P3, termasuk CI P3 run `42331348086` pada HEAD `55dc9b5` sebelum PR #2 merged; screenshot full-page P3 mobile 375 px dan desktop 1280 px dari artifact run tersebut. PR #2 kemudian merged ke main sebagai `7c36bca`. Dokumen awal P4 disusun ketika konektor GitHub sempat terganggu. Setelah akses pulih, PR #3 P4 diuji dalam GitHub Actions run `42333365270` pada HEAD `546a89a` dengan 12/12 source tests, Astro check/build, dan Chromium/axe responsive checks yang berhasil. Run tersebut membuktikan source/build/test pada PR ini, **bukan** audit Lighthouse live, persetujuan rilis, atau penyelesaian QA manual.
 
 ## Release gate — decision matrix
 
