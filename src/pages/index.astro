@@ -46,7 +46,7 @@ const process = [
         <p class="lead">{site.heroDescription}</p>
         <div class="actions">
           <a class="button button-dark" href="#work">Eksplorasi karya <span aria-hidden="true">↘</span></a>
-          <a class="button button-outline" href="#contact">Diskusikan ide <span aria-hidden="true">↗</span></a>
+          {site.contact.enabled && site.contact.email ? <a class="button button-outline" href="#contact">Diskusikan ide <span aria-hidden="true">↗</span></a> : <a class="button button-outline" href="/work/ruang-reka/">Pelajari studi kasus <span aria-hidden="true">↗</span></a>}
         </div>
         <p class="hero-note">Studio independen yang sedang berkembang. Studi kasus yang ditampilkan adalah proyek eksplorasi sendiri, bukan hasil pekerjaan untuk klien.</p>
         <div class="hero-bottom-line" aria-label="Bidang eksplorasi studio">
@@ -136,7 +136,7 @@ const process = [
       </div>
       <div>
         <h2 id="about-heading">Independen dalam bentuk. <em>Terbuka dalam proses.</em></h2>
-        <p>Rakit Nalar Studio adalah identitas studio independen yang menggabungkan minat pada desain, website development, dan teknologi AI. Nama profesional pemilik serta kontak bisnis akan dilengkapi setelah disetujui.</p>
+        <p>Rakit Nalar Studio adalah konsep identitas Hybrid Personal × Studio: karya dan keputusan teknis ditampilkan melalui brand studio independen, sementara sosok kreator akan diperkenalkan setelah identitas profesionalnya disetujui. Tidak ada klaim tentang tim, klien berbayar, atau kontak bisnis yang belum terverifikasi.</p>
         <p>Ruang Reka menjadi eksplorasi pertama yang didokumentasikan: bukan portofolio klien, melainkan bukti cara berpikir, membangun, menguji, dan memperbaiki sistem.</p>
         <a href="/work/ruang-reka/" class="text-link">Kenali proses di balik Ruang Reka <span aria-hidden="true">↗</span></a>
       </div>
