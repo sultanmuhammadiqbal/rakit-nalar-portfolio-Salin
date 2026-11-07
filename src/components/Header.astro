@@ -9,7 +9,7 @@ import { site } from '../data/site';
     </a>
     <nav aria-label="Navigasi utama" class="navigation">
       {site.nav.map((item) => <a href={item.href}>{item.text}</a>)}
-      <a class="nav-contact" href="/#contact">Diskusi proyek <span aria-hidden="true">↗</span></a>
+      {site.contact.enabled && site.contact.email ? <a class="nav-contact" href="/#contact">Diskusi proyek <span aria-hidden="true">↗</span></a> : <a class="nav-contact" href="/work/ruang-reka/">Studi kasus <span aria-hidden="true">↗</span></a>}
     </nav>
   </div>
 </header>
