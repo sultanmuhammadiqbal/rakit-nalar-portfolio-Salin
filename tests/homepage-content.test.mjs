@@ -29,6 +29,12 @@ test('P2 remains explicitly an independent demo without fabricated contacts', as
   assert.match(page, /bukan portofolio klien/);
   assert.match(data, /enabled: false/);
   assert.match(cta, /contact-disabled/);
+  assert.match(cta, /Baca studi kasus/);
+  assert.match(page, /Pelajari studi kasus/);
+  const header = await read('src/components/Header.astro');
+  assert.match(header, /Studi kasus/);
+  assert.match(data, /creator: null/);
+  assert.doesNotMatch(page, /\[Nama Profesional\]/);
 });
 
 test('P2 design retains responsive breakpoints and focus indicators', async () => {
