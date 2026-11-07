@@ -16,7 +16,8 @@ test('demo safely stays noindex without invented client contact', async () => {
   assert.match(layout, /noindex,nofollow/);
   assert.match(robots, /Disallow: \/$/m);
   assert.match(data, /enabled: false/);
-  assert.match(data, /\[Nama Profesional\]/);
+  assert.match(data, /creator: null/);
+  assert.doesNotMatch(data, /creator: '\[Nama Profesional\]'/);
 });
 test('accessible semantic foundation and genuine work attribution', async () => {
   const page = await read('src/pages/index.astro');
