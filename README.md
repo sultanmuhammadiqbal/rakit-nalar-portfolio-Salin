@@ -6,7 +6,7 @@ A separate Astro static portfolio for an independent Hybrid Personal × Studio i
 
 - This is an independent experimental portfolio, **not a claimed client agency track record**. Ruang Reka is a fictional interior design site used as a documented engineering case study.
 - `Rakit Nalar Studio` is a proposed studio name, **not trademark/domain cleared**. Verify name, domain, and handle availability before launching publicly.
-- Owner name `[Nama Profesional]` and business contacts are placeholders. The email CTA is disabled; do not insert fabricated phone numbers or customer testimonials.
+- Owner identity is intentionally pending in the Hybrid Personal × Studio concept (`creator: null`); no personal name is asserted. Business contacts are also pending. The email CTA is disabled; do not insert fabricated phone numbers or customer testimonials.
 - Homepage and case study use `noindex,nofollow` and robots.txt blocks indexing during development. Remove only after review and consent.
 - Rights to the Ruang Reka template assets and final commercial license remain unverified. This portfolio only links to its public GitHub evidence.
 - No Cloudflare Pages project or third-party account is connected by this scaffold.
@@ -53,21 +53,20 @@ tests/ foundation.test.mjs
 
 ## GitHub repository (sudah dibuat)
 
-Repository sudah tersedia di https://github.com/sultanmuhammadiqbal/rakit-nalar-portfolio-Salin. Jika perlu menjalankan proyek secara lokal, clone repository tersebut. Petunjuk bootstrap awal berikut hanya arsip referensi dan **jangan digunakan untuk menimpa sejarah Git**.
-2. Extract the delivered ZIP and run from its project root:
+Repository: https://github.com/sultanmuhammadiqbal/rakit-nalar-portfolio-Salin
+
+Untuk bekerja dari komputer lokal:
 
 ```bash
-git init
-git branch -M main
-git add .
-git commit -m "chore: bootstrap Rakit Nalar Astro portfolio"
-git remote add origin https://github.com/sultanmuhammadiqbal/rakit-nalar-portfolio-Salin.git
-git push -u origin main
+git clone https://github.com/sultanmuhammadiqbal/rakit-nalar-portfolio-Salin.git
+cd rakit-nalar-portfolio-Salin
+npm install
+npm test
+npm run check
+npm run build
 ```
 
-3. Open Actions and verify `Portfolio checks` runs. Use pull requests for future changes. **Do not connect a Cloudflare project yet.**
-
-Repository telah diverifikasi dengan GitHub connector pada awal Fase P2. Gunakan branch fitur + pull request untuk perubahan berikutnya; jangan langsung push manual ulang menggunakan langkah bootstrap.
+Untuk mengembangkan fitur baru: buat branch dari `main`, commit perubahan, push branch, lalu ajukan pull request. Pemeriksaan `Portfolio checks` harus lulus sebelum merge. **Jangan menjalankan `git init` atau bootstrap ulang pada repository ini.**
 
 ## Cloudflare later (not executed)
 
@@ -77,6 +76,14 @@ When explicitly approved, create a **new** Cloudflare Pages project for this rep
 
 Branch pekerjaan: `feat/p2-homepage-experience` (PR belum di-merge ke `main`). Homepage kini memuat hero editorial, visual identitas studio berbasis CSS tanpa aset pihak ketiga, proyek independen Ruang Reka, tiga kemampuan yang **sedang dikembangkan** studio, metode kerja, dan penjelasan status proyek.
 
-Navigasi in-page, noindex, dan kontak nonaktif tetap dipertahankan. Tidak ada testimoni, proyek klien berbayar, angka bisnis, atau klaim legal tanpa bukti. CI menjalankan `npm test`, `astro check`, `astro build`, Chromium/axe di viewport 320/375/768/1280 serta menyimpan screenshot 375/1280 di GitHub Actions. Audit otomatis bukan pengganti review manual keyboard, screen reader, dan visual.
+Navigasi in-page, noindex, dan kontak nonaktif tetap dipertahankan. CTA beralih ke studi kasus saat kontak belum disetujui; tidak ada ajakan konsultasi yang mengarah ke kontak nonaktif. Tidak ada testimoni, proyek klien berbayar, angka bisnis, atau klaim legal tanpa bukti. CI menjalankan `npm test`, `astro check`, `astro build`, Chromium/axe di viewport 320/375/768/1280 serta menyimpan screenshot 375/1280 di GitHub Actions. Audit otomatis bukan pengganti review manual keyboard, screen reader, dan visual.
 
 Cloudflare belum terhubung; seluruh perubahan homepage diajukan lewat PR agar `main` tetap stabil sebelum persetujuan merge.
+
+### P2 — Perbaikan audit sebelum merge
+
+- CTA hero, header, dan section kontak menggunakan fallback menuju studi kasus jika `site.contact.enabled` masih `false`, bukan mengundang konsultasi yang belum tersedia.
+- Status kreator Hybrid Personal × Studio dicatat sebagai pending (`creator: null`), tanpa nama pribadi yang dibuat-buat; tinjauan identitas publik dilakukan sebelum peluncuran.
+- Navigasi mobile dibagi dua kolom pada lebar <=650 px dengan target sentuh minimum 44 px; label-label kecil dinaikkan ukurannya.
+- Chromium/axe mencakup jalur keyboard skip-link, fokus terlihat, ukuran target navigasi mobile, jalur CTA ke studi kasus, viewport 320/375/768/1280 dan noindex.
+- QA manual dan keterbatasan pengujian tercatat di `docs/QA-P2.md`. Tidak ada perubahan pada repo Ruang Reka atau deployment Cloudflare.
