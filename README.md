@@ -74,7 +74,7 @@ When explicitly approved, create a **new** Cloudflare Pages project for this rep
 
 ## P2 — Editorial Homepage Experience
 
-Branch pekerjaan: `feat/p2-homepage-experience` (PR belum di-merge ke `main`). Homepage kini memuat hero editorial, visual identitas studio berbasis CSS tanpa aset pihak ketiga, proyek independen Ruang Reka, tiga kemampuan yang **sedang dikembangkan** studio, metode kerja, dan penjelasan status proyek.
+P2 sudah di-merge melalui PR #1 ke `main`. Homepage kini memuat hero editorial, visual identitas studio berbasis CSS tanpa aset pihak ketiga, proyek independen Ruang Reka, tiga kemampuan yang **sedang dikembangkan** studio, metode kerja, dan penjelasan status proyek.
 
 Navigasi in-page, noindex, dan kontak nonaktif tetap dipertahankan. CTA beralih ke studi kasus saat kontak belum disetujui; tidak ada ajakan konsultasi yang mengarah ke kontak nonaktif. Tidak ada testimoni, proyek klien berbayar, angka bisnis, atau klaim legal tanpa bukti. CI menjalankan `npm test`, `astro check`, `astro build`, Chromium/axe di viewport 320/375/768/1280 serta menyimpan screenshot 375/1280 di GitHub Actions. Audit otomatis bukan pengganti review manual keyboard, screen reader, dan visual.
 
@@ -87,3 +87,11 @@ Cloudflare belum terhubung; seluruh perubahan homepage diajukan lewat PR agar `m
 - Navigasi mobile dibagi dua kolom pada lebar <=650 px dengan target sentuh minimum 44 px; label-label kecil dinaikkan ukurannya.
 - Chromium/axe mencakup jalur keyboard skip-link, fokus terlihat, ukuran target navigasi mobile, jalur CTA ke studi kasus, viewport 320/375/768/1280 dan noindex.
 - QA manual dan keterbatasan pengujian tercatat di `docs/QA-P2.md`. Tidak ada perubahan pada repo Ruang Reka atau deployment Cloudflare.
+
+## P3 — Premium Ruang Reka Engineering Case Study
+
+Branch `feat/p3-ruang-reka-case-study` memperkaya `/work/ruang-reka/` dengan narasi problem, empat lapisan sistem, tujuh milestone PR #1–7 yang **sudah merged**, visual konseptual CSS, dan hasil Lighthouse dari CI homepage demo Ruang Reka PR #7. PR Ruang Reka #8 tidak masuk milestone merged karena masih Open pada verifikasi awal P3.
+
+Hasil Lighthouse 100 Performance, 100 Accessibility, 100 Best Practices, dan 63 SEO berasal dari **run GitHub Actions #42302718353 untuk homepage demo**, bukan untuk halaman Rakit Nalar. Pengujian paket ZIP dan visual configurator bersifat eksperimen teknis, bukan izin distribusi komersial. Hak aset dan lisensi belum diverifikasi.
+
+Tes P3: `tests/case-study-content.test.mjs` serta `tests/case-study-browser.mjs` (Chromium/axe pada 320/375/768/1280 px), screenshot 375 dan 1280 px pada artifact GitHub Actions. Daftar pemeriksaan manual terdapat pada `docs/QA-P3.md`. Tidak ada Cloudflare atau perubahan pada repo Ruang Reka.
