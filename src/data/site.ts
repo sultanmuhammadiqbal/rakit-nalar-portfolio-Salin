@@ -2,7 +2,8 @@ export const site = {
   name: 'Rakit Nalar Studio',
   shortName: 'rakit.nalar',
   identity: 'Independent Digital Studio',
-  creator: '[Nama Profesional]',
+  creator: null, // Hybrid: identitas kreator belum disetujui untuk ditampilkan.
+  creatorStatus: 'Kreator belum diperkenalkan secara publik',
   description: 'Eksplorasi desain, website development, dan solusi digital yang dibangun dengan proses terukur.',
   heroEyebrow: 'WEB DEVELOPMENT · CREATIVE TECHNOLOGY',
   heroTitle: 'Ide yang bagus layak dibangun dengan baik.',

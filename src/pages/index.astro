@@ -4,43 +4,143 @@ import ProjectCard from '../components/ProjectCard.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import { site } from '../data/site';
 import { projects } from '../data/projects';
-const services = [
-  { index: '01', title: 'Website Development', detail: 'Website responsif dan pengalaman pengguna yang berfokus pada tujuan bisnis.' },
-  { index: '02', title: 'AI Workflow & Automation', detail: 'Eksplorasi otomasi untuk menyederhanakan proses manual sesuai kebutuhan dan kelayakan teknis.' },
-  { index: '03', title: 'Digital Products', detail: 'Prototipe dan sistem yang dibangun agar mudah diuji serta dikembangkan.' },
+
+const capabilities = [
+  {
+    number: '01',
+    icon: '↗',
+    title: 'Website Development',
+    detail: 'Website bisnis dengan identitas visual yang kuat, struktur informasi yang jelas, dan pengalaman responsif yang dapat diuji.',
+    tags: ['Frontend', 'Responsive UI', 'Accessibility'],
+  },
+  {
+    number: '02',
+    icon: '⌘',
+    title: 'AI Workflow & Automation',
+    detail: 'Eksplorasi otomasi untuk pekerjaan berulang. Kelayakan, integrasi, batasan biaya, dan privasi dibahas sebelum implementasi.',
+    tags: ['Workflow', 'Integration', 'Prototyping'],
+  },
+  {
+    number: '03',
+    icon: '◈',
+    title: 'Digital Product Systems',
+    detail: 'Prototipe, sistem konfigurasi, dan fondasi produk digital untuk ide yang perlu divalidasi serta dikembangkan bertahap.',
+    tags: ['Templates', 'Reusable Systems', 'Documentation'],
+  },
 ];
-const steps = ['Discover', 'Design', 'Build', 'Validate', 'Deliver'];
+
+const process = [
+  { number: '01', name: 'Discover', description: 'Memahami kebutuhan bisnis, konteks pengguna, dan batasan proyek.' },
+  { number: '02', name: 'Design', description: 'Menyusun struktur, visual, dan arah pengalaman pengguna.' },
+  { number: '03', name: 'Build', description: 'Membuat solusi dengan arsitektur yang sesuai kebutuhan.' },
+  { number: '04', name: 'Validate', description: 'Memeriksa fungsi, aksesibilitas, responsivitas, dan kualitas.' },
+  { number: '05', name: 'Deliver', description: 'Menyiapkan hasil, dokumentasi, dan proses serah terima.' },
+];
 ---
-<BaseLayout title="Rakit Nalar Studio — Website & Digital Experiences">
+<BaseLayout title="Rakit Nalar Studio — Independent Digital Studio" description="Rakit Nalar Studio: eksplorasi website development, sistem digital, dan AI-assisted workflows. Lihat studi kasus independen Ruang Reka.">
   <section class="hero section-pad" aria-labelledby="hero-heading">
     <div class="container hero-grid">
-      <div>
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{site.heroEyebrow}</p>
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="status-dot" aria-hidden="true"></span>{site.heroEyebrow}</p>
         <h1 id="hero-heading">Ide yang bagus layak <em>dibangun dengan baik.</em></h1>
         <p class="lead">{site.heroDescription}</p>
-        <div class="actions"><a class="button button-dark" href="#work">Jelajahi karya <span aria-hidden="true">↘</span></a><a class="button button-outline" href="#contact">Diskusikan proyek <span aria-hidden="true">↗</span></a></div>
-        <p class="hero-note">Studio independen · Berbasis eksplorasi dan dokumentasi terbuka · Belum menampilkan proyek klien berbayar.</p>
+        <div class="actions">
+          <a class="button button-dark" href="#work">Eksplorasi karya <span aria-hidden="true">↘</span></a>
+          {site.contact.enabled && site.contact.email ? <a class="button button-outline" href="#contact">Diskusikan ide <span aria-hidden="true">↗</span></a> : <a class="button button-outline" href="/work/ruang-reka/">Pelajari studi kasus <span aria-hidden="true">↗</span></a>}
+        </div>
+        <p class="hero-note">Studio independen yang sedang berkembang. Studi kasus yang ditampilkan adalah proyek eksplorasi sendiri, bukan hasil pekerjaan untuk klien.</p>
+        <div class="hero-bottom-line" aria-label="Bidang eksplorasi studio">
+          <span>WEB</span><span aria-hidden="true">/</span>
+          <span>DESIGN</span><span aria-hidden="true">/</span>
+          <span>AUTOMATION</span>
+        </div>
       </div>
-      <div class="hero-panel" aria-hidden="true">
-        <div class="panel-top">DESIGN WITH INTENTION <span>RN / 001</span></div>
-        <div class="panel-orbit"><span>IDEA</span><b>→</b><span>DESIGN</span><b>→</b><span>BUILD</span></div>
-        <div class="panel-symbol">r<span>.</span>n</div>
+      <div class="hero-panel hero-canvas" aria-hidden="true">
+        <div class="panel-top">RAKIT NALAR <span>STUDIO / 001</span></div>
+        <div class="visual-cross visual-cross-top">+</div>
+        <div class="visual-ring visual-ring-one"></div>
+        <div class="visual-ring visual-ring-two"></div>
+        <div class="visual-wordmark">rakit<span>.</span><br />nalar</div>
+        <div class="visual-stamp"><span>DESIGN</span><span>×</span><span>LOGIC</span></div>
+        <div class="visual-cross visual-cross-bottom">+</div>
         <div class="panel-bottom">THOUGHTFUL DIGITAL SYSTEMS <span>EST. 2026</span></div>
       </div>
     </div>
   </section>
-  <section class="section-pad work-section" id="work" aria-labelledby="work-heading">
-    <div class="container">
-      <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-heading">Bukan cuma hasil. <em>Ada proses di baliknya.</em></h2></div><p>Studi kasus pertama kami adalah proyek independen, dengan kode, pengujian, dan riwayat pengembangan yang bisa diperiksa.</p></div>
-      {projects.map((project) => <ProjectCard {...project} />)}
+
+  <section class="proof-bar" aria-label="Prinsip kerja studio">
+    <div class="container proof-inner">
+      <span>THOUGHTFUL BY DESIGN</span>
+      <span aria-hidden="true">✳</span>
+      <span>BUILT TO BE TESTED</span>
+      <span aria-hidden="true">✳</span>
+      <span>DOCUMENTED FOR REUSE</span>
     </div>
   </section>
+
+  <section class="section-pad work-section" id="work" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="section-heading editorial-heading">
+        <div>
+          <p class="eyebrow">01 / SELECTED WORK</p>
+          <h2 id="work-heading">Bukan cuma hasil. <em>Ada proses di baliknya.</em></h2>
+        </div>
+        <p>Satu proyek independen yang benar-benar dapat ditelusuri: dari website demo menjadi sistem konfigurasi reusable, dengan pengujian dan riwayat pengembangan terbuka.</p>
+      </div>
+      {projects.map((project) => <ProjectCard {...project} />)}
+      <div class="work-footer">
+        <p><strong>Proyek unggulan:</strong> Ruang Reka, website demo interior fiktif. Bukan proyek berbayar atau testimoni klien.</p>
+        <a class="text-link" href="https://github.com/sultanmuhammadiqbal/template-website-jasa/pulls?q=is%3Apr+is%3Amerged" target="_blank" rel="noopener noreferrer">Lihat riwayat pengembangan <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section-pad services-section" id="services" aria-labelledby="services-heading">
-    <div class="container"><p class="eyebrow">02 / CAPABILITIES</p><div class="section-heading"><h2 id="services-heading">Membangun lebih dari <em>sekadar tampilan.</em></h2><p>Berikut cakupan layanan yang ingin dikembangkan; detail, kelayakan, dan biaya diputuskan per proyek.</p></div><div class="services-grid">{services.map((service) => <article class="service"><span class="service-index">{service.index}</span><h3>{service.title}</h3><p>{service.detail}</p></article>)}</div></div>
+    <div class="container">
+      <p class="eyebrow">02 / WHAT WE EXPLORE</p>
+      <div class="section-heading editorial-heading">
+        <h2 id="services-heading">Desain yang punya arah. <em>Teknologi yang punya tujuan.</em></h2>
+        <p>Bidang yang dikembangkan studio. Scope, estimasi, kesiapan layanan, dan kesesuaian solusi dibahas secara transparan untuk tiap kebutuhan.</p>
+      </div>
+      <div class="capabilities-grid">
+        {capabilities.map((capability) =>
+          <article class="capability-card">
+            <div class="capability-top"><span>{capability.number} / EXPLORE</span><span aria-hidden="true">{capability.icon}</span></div>
+            <h3>{capability.title}</h3>
+            <p>{capability.detail}</p>
+            <div class="capability-tags">{capability.tags.map((tag) => <span>{tag}</span>)}</div>
+          </article>
+        )}
+      </div>
+    </div>
   </section>
+
   <section class="section-pad process-section" id="process" aria-labelledby="process-heading">
-    <div class="container"><p class="eyebrow">03 / METHOD</p><div class="section-heading"><h2 id="process-heading">Cara kerja yang <em>dapat ditelusuri.</em></h2><p>Dari ide hingga handoff, setiap langkah diarahkan untuk menghasilkan pekerjaan yang jelas dan dapat diuji.</p></div><ol class="process-list">{steps.map((step,index) => <li><span>{String(index+1).padStart(2,'0')}</span><strong>{step}</strong></li>)}</ol></div>
+    <div class="container">
+      <p class="eyebrow">03 / HOW WE APPROACH WORK</p>
+      <div class="section-heading editorial-heading">
+        <h2 id="process-heading">Punya ide? <em>Kita mulai dari yang penting.</em></h2>
+        <p>Proses kerja yang dirancang agar keputusan, asumsi, dan hasil dapat diperiksa. Ini adalah pendekatan yang dipakai dan terus disempurnakan dalam proyek eksplorasi studio.</p>
+      </div>
+      <ol class="method-list">
+        {process.map((step) => <li><span class="method-number">{step.number}</span><div><h3>{step.name}</h3><p>{step.description}</p></div><span class="method-arrow" aria-hidden="true">↗</span></li>)}
+      </ol>
+    </div>
   </section>
-  <section class="section-pad about-section" id="about" aria-labelledby="about-heading"><div class="container about-grid"><p class="eyebrow">04 / BEHIND THE STUDIO</p><div><h2 id="about-heading">Independen secara bentuk. <em>Serius dalam pengerjaan.</em></h2><p>Rakit Nalar Studio adalah identitas kerja untuk membangun website dan mengeksplorasi teknologi kreatif. Identitas pemilik studio dan informasi kontak akan ditampilkan setelah disetujui.</p><p>Ruang Reka menjadi titik awal: proyek fiktif yang dikembangkan secara bertahap dengan pengujian dan dokumentasi GitHub.</p></div></div></section>
+
+  <section class="section-pad about-section" id="about" aria-labelledby="about-heading">
+    <div class="container about-editorial">
+      <div>
+        <p class="eyebrow">04 / BEHIND THE STUDIO</p>
+        <span class="about-glyph" aria-hidden="true">rn<span>.</span></span>
+      </div>
+      <div>
+        <h2 id="about-heading">Independen dalam bentuk. <em>Terbuka dalam proses.</em></h2>
+        <p>Rakit Nalar Studio adalah konsep identitas Hybrid Personal × Studio: karya dan keputusan teknis ditampilkan melalui brand studio independen, sementara sosok kreator akan diperkenalkan setelah identitas profesionalnya disetujui. Tidak ada klaim tentang tim, klien berbayar, atau kontak bisnis yang belum terverifikasi.</p>
+        <p>Ruang Reka menjadi eksplorasi pertama yang didokumentasikan: bukan portofolio klien, melainkan bukti cara berpikir, membangun, menguji, dan memperbaiki sistem.</p>
+        <a href="/work/ruang-reka/" class="text-link">Kenali proses di balik Ruang Reka <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
   <ContactCTA />
 </BaseLayout>

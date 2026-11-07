@@ -3,12 +3,12 @@ import { site } from '../data/site';
 ---
 <section id="contact" class="contact-section" aria-labelledby="contact-heading">
   <div class="container contact-inner">
-    <p class="eyebrow light">LET'S CONNECT</p>
-    <h2 id="contact-heading">Punya ide yang ingin diwujudkan?</h2>
-    <p>Diskusi awal membantu memahami tujuan, kebutuhan, dan ruang lingkup proyek sebelum memilih solusi teknis.</p>
+    <p class="eyebrow light">{site.contact.enabled && site.contact.email ? "LET'S CONNECT" : "NEXT / PROJECT JOURNAL"}</p>
+    <h2 id="contact-heading">{site.contact.enabled && site.contact.email ? 'Punya ide yang ingin diwujudkan?' : 'Kenali proses sebelum kita berdiskusi.'}</h2>
+    <p>{site.contact.enabled && site.contact.email ? 'Diskusi awal membantu memahami tujuan, kebutuhan, dan ruang lingkup proyek sebelum memilih solusi teknis.' : 'Website ini masih dalam pengembangan. Mulai dari studi kasus Ruang Reka untuk melihat keputusan desain, workflow AI-assisted, dan bukti pengujian.'}</p>
     {site.contact.enabled && site.contact.email
       ? <a class="button button-lime" href={`mailto:${site.contact.email}`}>Kirim email <span aria-hidden="true">↗</span></a>
-      : <p class="contact-disabled">Kontak profesional akan diaktifkan setelah informasi bisnis diverifikasi. Untuk sekarang, lihat pekerjaan dan prosesnya melalui GitHub.</p>
+      : <div class="contact-pending"><p class="contact-disabled">Kontak bisnis belum diaktifkan atau diverifikasi. Belum ada saluran konsultasi yang dibuka pada tahap ini.</p><a class="button button-lime" href="/work/ruang-reka/">Baca studi kasus <span aria-hidden="true">↗</span></a></div>
     }
   </div>
 </section>
