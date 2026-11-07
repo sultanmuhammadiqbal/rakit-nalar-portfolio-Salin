@@ -6,7 +6,7 @@ import AxeBuilder from '@axe-core/playwright';
 await mkdir(new URL('../artifacts/screenshots/',import.meta.url), { recursive: true });
 const browser = await chromium.launch({headless:true});
 try {
-  for (const width of [320,375,768,1280]) {
+  for (const width of [320,375,768,1024,1280]) {
     const context = await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});
     const page = await context.newPage();
     const errors=[];
@@ -17,6 +17,8 @@ try {
     assert.equal(await page.locator('h1').count(),1);
     assert.equal(await page.locator('.cs-milestone').count(),7);
     assert.equal(await page.locator('.cs-stat').count(),4);
+    assert.equal(await page.locator('.cs-benefits-grid article').count(),3);
+    assert.equal(await page.locator('.cs-benefits-grid a').count(),3);
     assert.equal(await page.getByRole('img',{name:/Ilustrasi konseptual browser website interior Ruang Reka/}).count(),1);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
     const metrics=await page.evaluate(()=>({
@@ -44,10 +46,23 @@ try {
     await page.keyboard.press('Enter');
     assert.equal(new URL(page.url()).hash,'#challenge');
     if(width<=375){
-      const a=page.locator('.cs-milestone a').first();
-      const box=await a.boundingBox();
-      assert.ok(box&&box.height>=44,'PR evidence touch target height at '+width);
+      for(const selector of ['.cs-milestone a','.cs-benefits-grid a']){
+        const links=page.locator(selector);
+        for(let i=0;i<await links.count();i++){
+          const box=await links.nth(i).boundingBox();
+          assert.ok(box&&box.height>=44,'Evidence touch target below 44px at '+width+' for '+selector+' #'+i);
+        }
+      }
     }
+    const allEvidence=page.locator('.cs-milestone a');
+    for(let i=0;i<7;i++){
+      assert.equal(await allEvidence.nth(i).getAttribute('href'),'https://github.com/sultanmuhammadiqbal/template-website-jasa/pull/'+(i+1));
+    }
+    for(const [i,number] of [5,6,7].entries()){
+      assert.equal(await page.locator('.cs-benefits-grid a').nth(i).getAttribute('href'),'https://github.com/sultanmuhammadiqbal/template-website-jasa/pull/'+number);
+    }
+    assert.match(await page.locator('#evidence').innerText(),/homepage demo Ruang Reka/);
+    assert.match(await page.locator('#challenge').innerText(),/fiktif/);
     if(width===375||width===1280){
       await page.screenshot({path:new URL('../artifacts/screenshots/p3-ruang-reka-'+width+'.png',import.meta.url).pathname,fullPage:true,animations:'disabled'});
     }
