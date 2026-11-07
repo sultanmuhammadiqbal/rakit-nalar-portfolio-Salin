@@ -70,6 +70,19 @@ const stats = [
     </div>
   </section>
 
+  <section class="section-pad cs-benefits" id="benefits" aria-labelledby="benefits-title">
+    <div class="container">
+      <p class="eyebrow">WHAT THIS EXPERIMENT DEMONSTRATES</p>
+      <h2 id="benefits-title">Tiga manfaat sistem <em>yang bisa ditelusuri.</em></h2>
+      <p class="cs-benefits-intro">Ini kemampuan teknis yang diuji dalam proyek demo, bukan metrik dampak pelanggan atau janji hasil komersial.</p>
+      <div class="cs-benefits-grid">
+        <article><span>01 / REUSABILITY</span><h3>Konfigurasi terpusat</h3><p>Konten dan tema dapat disesuaikan lewat satu sistem konfigurasi.</p><a href={repo+'/pull/5'} target="_blank" rel="noopener noreferrer">Bukti PR #5 <span aria-hidden="true">↗</span></a></article>
+        <article><span>02 / ITERATION</span><h3>Preview saat mengubah</h3><p>Konfigurator menawarkan live preview dan ekspor JSON untuk eksplorasi.</p><a href={repo+'/pull/6'} target="_blank" rel="noopener noreferrer">Bukti PR #6 <span aria-hidden="true">↗</span></a></article>
+        <article><span>03 / VALIDATION</span><h3>Pengujian sebelum distribusi</h3><p>Quality gates dan paket ZIP kandidat diperiksa lewat workflow otomatis.</p><a href={repo+'/pull/7'} target="_blank" rel="noopener noreferrer">Bukti PR #7 <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </div>
+  </section>
+
   <section class="section-pad cs-challenge" id="challenge" aria-labelledby="challenge-title">
     <div class="container cs-story-grid">
       <div class="cs-section-sidebar"><p class="eyebrow">01 / THE PROBLEM</p><span class="cs-section-no" aria-hidden="true">01</span></div>
@@ -110,7 +123,7 @@ const stats = [
       <ol class="cs-milestones">
         {milestones.map((m) => <li class="cs-milestone"><span class="cs-milestone-number">{m.number}</span><div><span class="cs-tag">{m.tag}</span><h3>{m.title}</h3><p>{m.detail}</p></div><a href={repo+'/pull/'+m.evidence} target="_blank" rel="noopener noreferrer" aria-label={'Lihat bukti GitHub pull request nomor '+m.evidence}>PR #{m.evidence} <span aria-hidden="true">↗</span></a></li>)}
       </ol>
-      <p class="cs-progress-note">Fase studi kasus engineering lanjutan berada di <a href={repo+'/pull/8'} target="_blank" rel="noopener noreferrer">PR #8 yang masih Open</a>. PR tersebut tidak dihitung sebagai milestone merged.</p>
+      <p class="cs-progress-note">Fase engineering case study lanjutan dicatat dalam <a href={repo+'/pull/8'} target="_blank" rel="noopener noreferrer">PR #8</a>. Periksa status terkini langsung di GitHub. Pada audit 7 November 2026, PR tersebut belum merged dan tidak termasuk tujuh milestone di atas.</p>
     </div>
   </section>
 
