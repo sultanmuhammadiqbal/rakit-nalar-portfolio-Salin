@@ -95,3 +95,16 @@ Branch `feat/p3-ruang-reka-case-study` memperkaya `/work/ruang-reka/` dengan nar
 Hasil Lighthouse 100 Performance, 100 Accessibility, 100 Best Practices, dan 63 SEO berasal dari **run GitHub Actions #42302718353 untuk homepage demo**, bukan untuk halaman Rakit Nalar. Pengujian paket ZIP dan visual configurator bersifat eksperimen teknis, bukan izin distribusi komersial. Hak aset dan lisensi belum diverifikasi.
 
 Tes P3: `tests/case-study-content.test.mjs` serta `tests/case-study-browser.mjs` (Chromium/axe pada 320/375/768/1280 px), screenshot 375 dan 1280 px pada artifact GitHub Actions. Daftar pemeriksaan manual terdapat pada `docs/QA-P3.md`. Tidak ada Cloudflare atau perubahan pada repo Ruang Reka.
+
+
+## P4 — Launch Readiness (pre-launch, no deployment)
+
+This phase is delivered as a review-only feature branch and PR. **Do not merge or publish without separate approval.** The P4 package documents evidence-backed readiness gates but does not introduce a hosting integration, DNS change, form, analytics, or public release.
+
+- [Launch readiness, ownership decisions, and go/no-go matrix](docs/P4-LAUNCH-READINESS.md)
+- [Hybrid Personal × Studio identity and copywriting policy](docs/P4-HYBRID-IDENTITY.md)
+- [SEO, accessibility, performance, security, and asset provenance audit](docs/P4-TECHNICAL-AUDIT.md)
+- [Approval-gated deployment and rollback runbook](docs/P4-DEPLOYMENT-RUNBOOK.md)
+- [Automated pre-launch safety checks](tests/p4-readiness.test.mjs)
+
+**Current release decision:** NO-GO for public launch until verified creator/contact choices, brand/domain review, asset licenses, browser and accessibility QA, and independent Rakit Nalar Lighthouse tests are complete. Ruang Reka Lighthouse scores refer only to the source demo. `noindex,nofollow`, `robots.txt Disallow: /`, and disabled contact remain unchanged.
