@@ -24,7 +24,12 @@ test('P3 distinguishes proof from fictional or commercial claims', async () => {
   assert.match(page, /bukan produk siap jual/);
   assert.match(page, /bukan tangkapan layar produk aktual/i);
   assert.match(page, /homepage demo.*CI/);
-  assert.match(page, /PR #8 yang masih Open/);
+  assert.match(page, /Periksa status terkini langsung di GitHub/);
+  assert.match(page, /7 November 2026/);
+  assert.match(page, /Tiga manfaat sistem/);
+  assert.match(page, /Konfigurasi terpusat/);
+  assert.match(page, /Preview saat mengubah/);
+  assert.match(page, /Pengujian sebelum distribusi/);
   assert.match(page, /hak aset, lisensi final/);
   assert.doesNotMatch(page, /proyek klien berbayar yang telah sukses/i);
 });
