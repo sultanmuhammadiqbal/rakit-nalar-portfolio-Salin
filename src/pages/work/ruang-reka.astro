@@ -1,7 +1,144 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const repo = 'https://github.com/sultanmuhammadiqbal/template-website-jasa';
+const evidenceRun = 'https://github.com/sultanmuhammadiqbal/template-website-jasa/actions/runs/42302718353';
+const milestones = [
+  { number: '01', title: 'Fondasi pengalaman', detail: 'Homepage responsif untuk konsep jasa interior fiktif.', evidence: 1, tag: 'UI / RESPONSIVE' },
+  { number: '02', title: 'Narasi layanan', detail: 'Bagian layanan, portofolio, dan studi kasus demo.', evidence: 2, tag: 'CONTENT SYSTEM' },
+  { number: '03', title: 'Interaksi dasar', detail: 'FAQ yang dapat diakses dan konfigurasi kontak demo.', evidence: 3, tag: 'ACCESSIBILITY' },
+  { number: '04', title: 'Quality gates', detail: 'Pemeriksaan SEO, WCAG otomatis, Lighthouse, dan kesiapan produksi.', evidence: 4, tag: 'VALIDATION' },
+  { number: '05', title: 'Template engine', detail: 'Konfigurasi terpusat, rendering data, dan validator.', evidence: 5, tag: 'CONFIGURATION' },
+  { number: '06', title: 'Visual configurator', detail: 'Preview langsung dan ekspor konfigurasi JSON.', evidence: 6, tag: 'EDITING EXPERIENCE' },
+  { number: '07', title: 'Candidate packaging', detail: 'ZIP deterministik dengan manifest SHA-256 serta pemeriksaan asset allowlist.', evidence: 7, tag: 'DISTRIBUTION TEST' },
+];
+const pillars = [
+  { n: '01', name: 'Design surface', desc: 'Website statis responsif sebagai simulasi layanan desain interior.' },
+  { n: '02', name: 'Configuration layer', desc: 'Pengaturan konten dan tema melalui konfigurasi terstruktur; divalidasi sebelum dirender.' },
+  { n: '03', name: 'Configurator', desc: 'Antarmuka untuk mengubah pilihan dan melihat preview tanpa menyunting source secara langsung.' },
+  { n: '04', name: 'Quality & delivery', desc: 'Unit checks, Chromium/axe, Lighthouse CI, dan ZIP kandidat yang dapat diuji secara terpisah.' },
+];
+const stats = [
+  { value: '07', name: 'PR #1–7 merged', detail: 'Riwayat pengerjaan di main' },
+  { value: '100', name: 'Performance', detail: 'Lighthouse homepage demo · CI' },
+  { value: '100', name: 'Accessibility', detail: 'Lighthouse homepage demo · CI' },
+  { value: '63', name: 'SEO', detail: 'Lighthouse homepage demo · noindex' },
+];
 ---
-<BaseLayout title="Ruang Reka — Studi Kasus | Rakit Nalar" description="Studi kasus independen Ruang Reka: template website jasa dan workflow pengembangan dengan bukti GitHub.">
-  <section class="case-hero section-pad"><div class="container narrow"><p class="eyebrow">INDEPENDENT WORK / 01</p><h1>Ruang Reka — dari demo menjadi fondasi template reusable.</h1><p class="lead">Studi kasus website jasa desain interior fiktif, dikembangkan bertahap menjadi sistem konfigurasi, visual configurator, dan paket distribusi kandidat.</p><p class="notice">Ini adalah proyek demonstrasi independen, bukan pekerjaan klien. Hak seluruh aset dan lisensi komersial template belum diverifikasi.</p></div></section>
-  <section class="section-pad"><div class="container narrow"><p class="eyebrow">WHAT WAS BUILT</p><h2>Desain, konfigurasi, pengujian, dan dokumentasi.</h2><p>Proyek berkembang melalui pull request #1–7: homepage responsif, layanan dan portofolio, FAQ dan kontak demo, quality gates, template engine, visual configurator, serta paket ZIP kandidat.</p><p>Repo dan hasil CI mendukung klaim teknis tersebut. Angka Lighthouse merupakan hasil CI sintetis untuk halaman tertentu, bukan janji performa pada semua perangkat atau deployment.</p><div class="actions"><a class="button button-dark" href="https://github.com/sultanmuhammadiqbal/template-website-jasa" target="_blank" rel="noopener noreferrer">Lihat GitHub ↗</a><a class="button button-outline" href="https://github.com/sultanmuhammadiqbal/template-website-jasa/pulls?q=is%3Apr+is%3Amerged" target="_blank" rel="noopener noreferrer">Riwayat PR ↗</a></div><p><a class="text-link" href="/">← Kembali ke portofolio</a></p></div></section>
+<BaseLayout title="Ruang Reka — Studi Kasus Engineering | Rakit Nalar Studio" description="Studi kasus independen Ruang Reka: website demo interior fiktif, konfigurasi reusable, visual configurator, pengujian CI, dan batasan komersial.">
+  <section class="cs-hero section-pad" aria-labelledby="cs-title">
+    <div class="container cs-hero-grid">
+      <div class="cs-intro">
+        <a class="cs-back" href="/#work"><span aria-hidden="true">←</span> Kembali ke Selected Work</a>
+        <p class="eyebrow">01 / INDEPENDENT PRODUCT EXPLORATION</p>
+        <h1 id="cs-title">Ruang Reka<span class="cs-period">.</span><br/><em>Designed to evolve.</em></h1>
+        <p class="cs-lead">Dari website jasa interior fiktif menjadi template yang dapat dikonfigurasi, diuji, dan dikemas secara konsisten.</p>
+        <p class="cs-disclaimer">Proyek eksplorasi independen — <strong>bukan pekerjaan klien</strong>, bisnis interior nyata, atau produk yang telah disetujui untuk dijual.</p>
+        <div class="cs-hero-actions">
+          <a class="button button-dark" href="#challenge">Telusuri studi kasus <span aria-hidden="true">↘</span></a>
+          <a class="button button-outline" href={repo} target="_blank" rel="noopener noreferrer">Lihat source GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="cs-art" role="img" aria-label="Ilustrasi konseptual browser website interior Ruang Reka dan panel configurator. Bukan tangkapan layar produk aktual.">
+        <div class="cs-art-kicker" aria-hidden="true"><span>CASE 001 / RUANG REKA</span><span>PRODUCT SYSTEMS</span></div>
+        <div class="cs-browser" aria-hidden="true">
+          <div class="cs-browser-top"><span>● ● ●</span><span>ruang-reka / fictional interior</span></div>
+          <div class="cs-browser-content">
+            <div class="cs-browser-label">RR / INTERIOR</div>
+            <div class="cs-browser-headline">Ruang yang<br/>terasa <i>rumah.</i></div>
+            <div class="cs-browser-cta">Explore spaces ↗</div>
+            <div class="cs-browser-blocks"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="cs-config-widget" aria-hidden="true">
+          <span>CONFIGURATOR / CONCEPT</span>
+          <strong>Live preview</strong>
+          <div><i></i><i></i><i></i><i></i></div>
+          <small>CONTENT · THEME · JSON</small>
+        </div>
+        <div class="cs-art-foot" aria-hidden="true"><span>STATIC DESIGN / CONFIGURATION / QUALITY</span><span>2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-meta-strip" aria-label="Ringkasan lingkup studi kasus">
+    <div class="container cs-meta-grid">
+      <div><span>PROJECT TYPE</span><strong>Independent demonstration</strong></div>
+      <div><span>DISCIPLINES</span><strong>Frontend · Systems · QA</strong></div>
+      <div><span>EVIDENCE</span><strong>GitHub PR + CI logs</strong></div>
+      <div><span>COMMERCIAL STATUS</span><strong>Not cleared for sale</strong></div>
+    </div>
+  </section>
+
+  <section class="section-pad cs-challenge" id="challenge" aria-labelledby="challenge-title">
+    <div class="container cs-story-grid">
+      <div class="cs-section-sidebar"><p class="eyebrow">01 / THE PROBLEM</p><span class="cs-section-no" aria-hidden="true">01</span></div>
+      <div class="cs-story-copy">
+        <h2 id="challenge-title">Bagaimana website demo bisa <em>berevolusi menjadi sistem?</em></h2>
+        <p>Ruang Reka dimulai sebagai konsep website jasa interior. Bisnis, layanan, dan proyek yang ditampilkan bersifat fiktif. Tantangan rekayasanya bukan membuktikan hasil bisnis klien, melainkan menguji apakah fondasi website dapat dikembangkan tanpa mengulang seluruh kode untuk setiap variasi identitas.</p>
+        <div class="cs-brief-grid">
+          <article><span>GOAL</span><h3>Reusable foundation</h3><p>Memisahkan pengaturan konten dari pengalaman antarmuka.</p></article>
+          <article><span>CONSTRAINT</span><h3>Responsible claims</h3><p>Tidak mengarang pengguna, penjualan, hak aset, atau hasil proyek klien.</p></article>
+          <article><span>METHOD</span><h3>Evidence first</h3><p>Mendokumentasikan perubahan lewat PR dan mengecek hasil melalui CI.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad cs-architecture" id="architecture" aria-labelledby="architecture-title">
+    <div class="container">
+      <div class="section-heading editorial-heading">
+        <div><p class="eyebrow">02 / SYSTEM THINKING</p><h2 id="architecture-title">Empat lapisan. <em>Satu arah pengembangan.</em></h2></div>
+        <p>Ringkasan arsitektur konseptual berdasarkan komponen yang telah diimplementasikan melalui PR #1–7.</p>
+      </div>
+      <ol class="cs-system-grid">
+        {pillars.map((p) => <li><span>{p.n} / LAYER</span><h3>{p.name}</h3><p>{p.desc}</p></li>)}
+      </ol>
+      <div class="cs-flow" role="group" aria-label="Alur konfigurasi website">
+        <span>CONFIG JSON</span><span aria-hidden="true">→</span><span>VALIDATOR</span><span aria-hidden="true">→</span><span>RENDERER</span><span aria-hidden="true">→</span><span>DEMO WEBSITE</span>
+      </div>
+      <p class="cs-small-note">Diagram menyederhanakan arsitektur untuk komunikasi portofolio, bukan diagram teknis lengkap atau infrastruktur backend.</p>
+    </div>
+  </section>
+
+  <section class="section-pad cs-journey" id="process" aria-labelledby="journey-title">
+    <div class="container">
+      <div class="section-heading editorial-heading">
+        <div><p class="eyebrow">03 / BUILD JOURNEY</p><h2 id="journey-title">Dibangun bertahap. <em>Dapat diperiksa satu per satu.</em></h2></div>
+        <p>Setiap milestone di bawah memiliki pull request yang sudah merged di repository Ruang Reka.</p>
+      </div>
+      <ol class="cs-milestones">
+        {milestones.map((m) => <li class="cs-milestone"><span class="cs-milestone-number">{m.number}</span><div><span class="cs-tag">{m.tag}</span><h3>{m.title}</h3><p>{m.detail}</p></div><a href={repo+'/pull/'+m.evidence} target="_blank" rel="noopener noreferrer" aria-label={'Lihat bukti GitHub pull request nomor '+m.evidence}>PR #{m.evidence} <span aria-hidden="true">↗</span></a></li>)}
+      </ol>
+      <p class="cs-progress-note">Fase studi kasus engineering lanjutan berada di <a href={repo+'/pull/8'} target="_blank" rel="noopener noreferrer">PR #8 yang masih Open</a>. PR tersebut tidak dihitung sebagai milestone merged.</p>
+    </div>
+  </section>
+
+  <section class="section-pad cs-evidence" id="evidence" aria-labelledby="evidence-title">
+    <div class="container">
+      <div class="section-heading editorial-heading">
+        <div><p class="eyebrow">04 / VERIFIED OUTPUTS</p><h2 id="evidence-title">Bukan angka pemasaran. <em>Hasil pengujian.</em></h2></div>
+        <p>Bukti berikut berasal dari workflow CI untuk homepage demo Ruang Reka pada PR #7; tidak mewakili halaman ini, deployment Cloudflare, atau perangkat setiap pengunjung.</p>
+      </div>
+      <div class="cs-stats">
+        {stats.map((stat) => <div class="cs-stat"><strong>{stat.value}</strong><span>{stat.name}</span><small>{stat.detail}</small></div>)}
+      </div>
+      <div class="cs-evidence-footer">
+        <div><h3>Lebih dari sekadar skor</h3><p>CI juga melaporkan paket ZIP kandidat dengan manifest SHA-256 dan pemeriksaan daftar aset, serta browser tests pada variasi Studio Arunika. Ini adalah pemeriksaan teknis—bukan izin menjual aset atau bukti adopsi pelanggan.</p></div>
+        <div><a class="button button-lime" href={evidenceRun} target="_blank" rel="noopener noreferrer">Periksa run CI PR #7 <span aria-hidden="true">↗</span></a><small>Run GitHub Actions 42302718353 · homepage demo</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad cs-lessons" id="reflection" aria-labelledby="reflection-title">
+    <div class="container cs-story-grid">
+      <div class="cs-section-sidebar"><p class="eyebrow">05 / REFLECTION</p><span class="cs-section-no" aria-hidden="true">05</span></div>
+      <div class="cs-story-copy">
+        <h2 id="reflection-title">Produk yang baik juga perlu <em>batasan yang jelas.</em></h2>
+        <p>Eksperimen ini memperlihatkan nilai konfigurasi terpusat, pengujian otomatis, dan pengembangan yang terlacak. AI membantu dalam proses eksperimen dan pengembangan, tetapi tidak ada persentase produktivitas atau atribusi hasil kepada AI tanpa pengukuran.</p>
+        <p>Masih ada pekerjaan sebelum produk komersial: verifikasi hak aset, lisensi final, pengujian pengguna sesungguhnya, kesiapan dukungan, dan persetujuan publikasi. Sampai selesai, paket tetap berstatus kandidat—bukan produk siap jual.</p>
+        <div class="cs-final-actions"><a class="button button-dark" href="/#work">Kembali ke portofolio <span aria-hidden="true">↗</span></a><a class="button button-outline" href={repo} target="_blank" rel="noopener noreferrer">Jelajahi repository <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
