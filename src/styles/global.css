@@ -45,3 +45,32 @@
 .work-footer p{margin:0;max-width:620px;color:#44604b}
 @media(max-width:1000px){.capabilities-grid{grid-template-columns:1fr}.capability-card{min-height:250px}.capability-card h3{margin:35px 0 10px}.about-editorial{grid-template-columns:1fr}.about-glyph{margin:5px 0 10px;font-size:90px}.proof-inner{justify-content:center;min-height:70px}.visual-wordmark{font-size:clamp(90px,17vw,135px)}}
 @media(max-width:650px){.hero-bottom-line{gap:9px;flex-wrap:wrap;font-size:.58rem}.hero-canvas{min-height:360px}.visual-wordmark{font-size:clamp(78px,19vw,120px);left:9%;top:29%}.visual-ring-one{width:240px;height:240px;right:-70px}.visual-ring-two{width:145px;height:145px}.visual-stamp{width:87px;height:87px;right:8%;bottom:15%;font-size:.6rem}.proof-inner{gap:10px 14px;padding-block:22px;font-size:.55rem;text-align:center}.proof-inner span:nth-child(even){font-size:1rem}.capability-card{padding:24px;min-height:250px}.method-list li{grid-template-columns:50px 1fr 22px;gap:12px;padding:20px 0}.method-number{font-size:1.75rem}.method-arrow{font-size:1rem}.work-footer{align-items:start;flex-direction:column}}
+
+/* Audit P2/P3: readable small-screen typography and touch navigation */
+.navigation a{min-height:44px;display:inline-flex;align-items:center}
+.nav-contact{min-height:44px;display:inline-flex;align-items:center}
+.contact-pending{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.contact-pending .contact-disabled{margin-top:8px}
+@media(max-width:650px){
+  .header-inner{gap:12px}
+  .navigation{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px;row-gap:6px}
+  .navigation a{font-size:.875rem;min-height:44px;padding:8px 10px;justify-content:flex-start}
+  .navigation .nav-contact{padding:10px 12px;border-radius:4px;min-height:44px}
+  .eyebrow{font-size:.78rem;letter-spacing:.11em}
+  .hero-bottom-line{font-size:.8rem;letter-spacing:.09em;gap:10px}
+  .proof-inner{font-size:.8rem;letter-spacing:.065em;line-height:1.5}
+  .proof-inner span:nth-child(even){font-size:1.15rem}
+  .capability-top{font-size:.8rem;letter-spacing:.075em}
+  .capability-tags span,.chip{font-size:.8rem;line-height:1.45;padding:7px 10px}
+  .panel-top,.panel-bottom{font-size:.76rem;letter-spacing:.055em}
+  .visual-stamp{font-size:.7rem}
+  .window-chrome,.floating-pill{font-size:.75rem}
+  .window-pill{font-size:.8rem}
+  .hero-note{font-size:.875rem}
+  .contact-disabled{font-size:.9rem}
+  .method-number{font-size:1.75rem}
+}
+@media(max-width:350px){
+  .proof-inner span:nth-child(even){display:none}
+  .proof-inner{flex-direction:column;gap:7px}
+}
