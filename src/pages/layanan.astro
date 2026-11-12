@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const included = [
+  { title: 'Discovery dan brief', detail: 'Tujuan, audiens, kebutuhan informasi, aset yang tersedia, dan kriteria selesai dibahas sebelum menentukan fitur.' },
+  { title: 'Rancangan konten dan desain', detail: 'Sitemap, arah visual, dan copy dasar dirumuskan dari data yang telah diverifikasi dan disetujui.' },
+  { title: 'Website responsif', detail: 'Struktur halaman, navigasi, dan tampilan mobile disusun sesuai ruang lingkup yang disepakati dalam proposal.' },
+  { title: 'Fondasi pencarian', detail: 'Judul/deskripsi halaman, struktur heading, dan alternatif teks gambar ditinjau sesuai materi yang tersedia; tanpa janji peringkat SEO.' },
+  { title: 'QA dan serah terima', detail: 'Pemeriksaan build, fungsi utama, responsivitas, dan dokumentasi disiapkan sebelum keputusan peluncuran.' },
+];
+const optional = [
+  'Domain, hosting, dan layanan pihak ketiga (biaya serta kepemilikan disepakati terpisah).',
+  'Foto, logo, copy panjang, dan aset berlisensi yang belum disediakan atau disetujui.',
+  'E-commerce, pembayaran, sistem reservasi, serta integrasi WhatsApp/API.',
+  'Analytics, automation, pemeliharaan rutin, dan pekerjaan tambahan di luar proposal.',
+];
+const stages = [
+  { label: '01 / Brief', body: 'Catat masalah, tujuan, audiens, materi, dan batasan anggaran tanpa meminta kredensial.' },
+  { label: '02 / Scope & proposal', body: 'Sepakati halaman, fitur, aset, jadwal, biaya, revisi, dan tanggung jawab masing-masing.' },
+  { label: '03 / Review desain', body: 'Tinjau spesifikasi, arah visual, konten, dan isu yang masih perlu konfirmasi.' },
+  { label: '04 / Build & QA', body: 'Implementasi dilakukan pada scope yang disetujui, lalu diuji sebelum publikasi.' },
+  { label: '05 / Serah terima', body: 'Periksa hasil, akses, panduan perubahan, serta rencana dukungan bila disepakati.' },
+];
+---
+<BaseLayout title="Rancangan Bundle Website UMKM | Rakit Nalar Studio" description="Rancangan penawaran bundle website UMKM oleh Rakit Nalar Studio: scope, batasan, alur review, dan bukti proyek demo. Belum dibuka untuk pemesanan.">
+  <section class="section-pad offer-hero" aria-labelledby="offer-heading">
+    <div class="container narrow">
+      <p class="eyebrow">RANCANGAN LAYANAN / UMKM</p>
+      <h1 id="offer-heading">Website untuk UMKM, <em>dimulai dari kebutuhan yang jelas.</em></h1>
+      <p class="lead">Bundle ini sedang dirumuskan untuk bisnis yang perlu menjelaskan layanan dan mempermudah calon pelanggan menemukan informasi penting. Isi final, harga, jadwal, serta kesiapan layanan ditetapkan melalui proposal tertulis.</p>
+      <p class="notice"><strong>Belum tersedia untuk pemesanan.</strong> Halaman ini menjelaskan rancangan penawaran, bukan checkout, kontrak layanan, atau janji hasil penjualan.</p>
+      <div class="actions"><a class="button button-dark" href="#cakupan">Tinjau cakupan <span aria-hidden="true">↓</span></a><a class="button button-outline" href="/#work">Lihat proyek demo <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <section class="section-pad offer-scope" id="cakupan" aria-labelledby="scope-heading">
+    <div class="container">
+      <p class="eyebrow">01 / BUNDLE UTAMA — DRAFT</p>
+      <div class="section-heading editorial-heading">
+        <h2 id="scope-heading">Satu bundle utama. <em>Scope tetap fleksibel.</em></h2>
+        <p>Komponen berikut merupakan rancangan awal. Jumlah halaman dan pekerjaan aktual harus ditulis dalam proposal yang disetujui, bukan diasumsikan dari daftar ini.</p>
+      </div>
+      <ol class="offer-items">
+        {included.map((item, i) => <li><span class="offer-no">{String(i + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-pad offer-boundaries" id="batasan" aria-labelledby="boundaries-heading">
+    <div class="container offer-columns">
+      <div><p class="eyebrow">02 / BATAS PEKERJAAN</p><h2 id="boundaries-heading">Yang tidak otomatis <em>termasuk.</em></h2><p>Semua biaya pihak ketiga, kewenangan akun, dukungan, dan pekerjaan di luar scope perlu persetujuan terpisah. Tidak ada integrasi aktif dalam demo fiktif.</p></div>
+      <ul class="offer-exclusions">{optional.map(item => <li>{item}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section-pad offer-process" id="alur" aria-labelledby="flow-heading">
+    <div class="container">
+      <p class="eyebrow">03 / ALUR KERJA</p>
+      <h2 id="flow-heading">Dari percakapan awal <em>ke hasil yang dapat diperiksa.</em></h2>
+      <ol class="offer-steps">{stages.map(step => <li><strong>{step.label}</strong><p>{step.body}</p></li>)}</ol>
+      <p class="notice">Setiap tahap membutuhkan persetujuan manusia untuk klaim, aset, scope, dan publikasi. AI dapat membantu proses, tetapi tidak menggantikan konfirmasi informasi bisnis oleh pemiliknya.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="bukti" aria-labelledby="proof-heading">
+    <div class="container narrow">
+      <p class="eyebrow">04 / BUKTI METODE</p>
+      <h2 id="proof-heading">Contoh proses, <em>bukan testimoni klien.</em></h2>
+      <p class="lead">Ruang Reka adalah eksplorasi template reusable. Bengkel Rapi adalah simulasi brief hingga coding dan QA untuk bisnis fiktif. Keduanya mendemonstrasikan metode pengembangan, bukan hasil bisnis atau penugasan berbayar.</p>
+      <div class="actions"><a class="button button-outline" href="/work/ruang-reka/">Ruang Reka <span aria-hidden="true">↗</span></a><a class="button button-outline" href="/work/bengkel-rapi/">Bengkel Rapi <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+  <ContactCTA />
+</BaseLayout>

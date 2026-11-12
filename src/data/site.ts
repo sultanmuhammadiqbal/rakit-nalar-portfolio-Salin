@@ -14,6 +14,7 @@ export const site = {
   nav: [
     { text: 'Proyek', href: '/#work' },
     { text: 'Layanan', href: '/#services' },
+    { text: 'Bundle UMKM', href: '/layanan/' },
     { text: 'Proses', href: '/#process' },
     { text: 'Tentang', href: '/#about' },
   ],
