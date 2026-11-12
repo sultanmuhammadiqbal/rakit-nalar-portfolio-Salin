@@ -10,4 +10,15 @@ export const projects = [
     externalRepo: 'https://github.com/sultanmuhammadiqbal/template-website-jasa',
     fictional: true,
   },
+  {
+    slug: 'bengkel-rapi',
+    title: 'Bengkel Rapi',
+    subtitle: 'Dari brief fiktif ke website demo yang dapat diuji.',
+    category: 'Fictional business demo / AI-assisted website workflow experiment',
+    summary: 'Eksperimen alur Brief → Proposal → AI Design Director → Codex → QA pada salinan integrasi lokal.',
+    chips: ['Website demo', 'JSON configurator', 'Desktop + mobile QA'],
+    href: '/work/bengkel-rapi/',
+    image: '/images/bengkel-rapi/desktop.png',
+    fictional: true,
+  },
 ] as const;

@@ -1,12 +1,21 @@
-# Rakit Nalar Studio — Portfolio Foundation (P1)
+# Rakit Nalar Studio — Portfolio source
 
-A separate Astro static portfolio for an independent Hybrid Personal × Studio identity. **Not the Ruang Reka demo repository.** This repository contains no modifications to the existing `sultanmuhammadiqbal/template-website-jasa` repo.
+Astro static portfolio untuk studio digital independen yang dikembangkan oleh **Iqbal**. Repository studio terpisah dari personal portfolio dan source Ruang Reka.
+
+## Status P5
+
+- Keputusan brand dan batas dua website: [docs/BRAND-ARCHITECTURE.md](docs/BRAND-ARCHITECTURE.md).
+- Rencana Cloudflare Pages tanpa koneksi atau deployment: [docs/CLOUDFLARE-PAGES-PREP.md](docs/CLOUDFLARE-PAGES-PREP.md).
+- Studi kasus eksplorasi fiktif: [Ruang Reka](src/pages/work/ruang-reka.astro) dan [Bengkel Rapi](src/pages/work/bengkel-rapi.astro). Screenshot Bengkel Rapi adalah hasil build demo lokal dan hanya dipakai untuk menunjukkan proses, bukan hasil bisnis.
+- Kontak nonaktif; `noindex,nofollow` dan `robots.txt Disallow: /` aktif. Belum ada izin publikasi produksi.
+
+Gunakan Node 22.23.4 (`.nvmrc`). Untuk instalasi yang sesuai lockfile: `npm ci`, lalu `npm test`, `npm run check`, dan `npm run build`. Browser tests memerlukan `playwright@1.56.1`, `@axe-core/playwright@4.10.2`, dan Chromium; perintah CI menginstalnya dengan `--no-save --package-lock=false` agar `package-lock.json` tidak berubah.
 
 ## Status and ethical attribution
 
 - This is an independent experimental portfolio, **not a claimed client agency track record**. Ruang Reka is a fictional interior design site used as a documented engineering case study.
 - `Rakit Nalar Studio` is a proposed studio name, **not trademark/domain cleared**. Verify name, domain, and handle availability before launching publicly.
-- Owner identity is intentionally pending in the Hybrid Personal × Studio concept (`creator: null`); no personal name is asserted. Business contacts are also pending. The email CTA is disabled; do not insert fabricated phone numbers or customer testimonials.
+- Keputusan P5 menetapkan Iqbal sebagai pengembang studio independen. Ini tidak menyatakan jabatan, tim, sertifikasi, atau rekam klien. Business contacts are pending. The email CTA is disabled; do not insert fabricated phone numbers or customer testimonials.
 - Homepage and case study use `noindex,nofollow` and robots.txt blocks indexing during development. Remove only after review and consent.
 - Rights to the Ruang Reka template assets and final commercial license remain unverified. This portfolio only links to its public GitHub evidence.
 - No Cloudflare Pages project or third-party account is connected by this scaffold.
@@ -21,7 +30,7 @@ A separate Astro static portfolio for an independent Hybrid Personal × Studio i
 ## Local development
 
 ```bash
-npm install
+npm ci
 npm test
 npm run check
 npm run dev
@@ -29,19 +38,19 @@ npm run build
 npm run preview
 ```
 
-Visit `http://localhost:4321/` and `/work/ruang-reka/`. npm installation requires access to the public npm registry. The scaffold package is not precompiled and does not contain `node_modules`.
+Visit `http://localhost:4321/`, `/work/ruang-reka/`, and `/work/bengkel-rapi/`. npm installation requires access to the public npm registry. The source package does not contain `node_modules`.
 
-## Planned project structure
+## Current project structure
 
 ```text
 src/
   components/ Header.astro Footer.astro ProjectCard.astro ContactCTA.astro
   layouts/ BaseLayout.astro
-  pages/ index.astro work/ruang-reka.astro
+  pages/ index.astro work/ruang-reka.astro work/bengkel-rapi.astro
   data/ site.ts projects.ts
   styles/ global.css
-public/ robots.txt favicon.svg
-tests/ foundation.test.mjs
+public/ robots.txt favicon.svg images/bengkel-rapi/
+tests/ *.test.mjs *-browser.mjs
 .github/workflows/checks.yml
 ```
 
@@ -60,7 +69,7 @@ Untuk bekerja dari komputer lokal:
 ```bash
 git clone https://github.com/sultanmuhammadiqbal/rakit-nalar-portfolio-Salin.git
 cd rakit-nalar-portfolio-Salin
-npm install
+npm ci
 npm test
 npm run check
 npm run build
@@ -107,4 +116,4 @@ This phase is delivered as a review-only feature branch and PR. **Do not merge o
 - [Approval-gated deployment and rollback runbook](docs/P4-DEPLOYMENT-RUNBOOK.md)
 - [Automated pre-launch safety checks](tests/p4-readiness.test.mjs)
 
-**Current release decision:** NO-GO for public launch until verified creator/contact choices, brand/domain review, asset licenses, browser and accessibility QA, and independent Rakit Nalar Lighthouse tests are complete. Ruang Reka Lighthouse scores refer only to the source demo. `noindex,nofollow`, `robots.txt Disallow: /`, and disabled contact remain unchanged.
+**P4 historical release decision:** NO-GO for public launch. P5 telah menetapkan nama Iqbal sebagai pengembang studio, tetapi kontak, brand/domain review, hak aset, dan persetujuan publikasi tetap tertunda. Skor Lighthouse Ruang Reka merujuk ke source demo; skor Bengkel Rapi merujuk ke QA lokal demo. `noindex,nofollow`, `robots.txt Disallow: /`, dan kontak nonaktif tetap berlaku.

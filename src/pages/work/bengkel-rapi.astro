@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const steps = [
+  { number: '01', name: 'Brief', detail: 'Data contoh menetapkan audiens, lima bagian halaman, tiga layanan, dan tiga FAQ. Informasi bisnis tetap berstatus draft.' },
+  { number: '02', name: 'Proposal', detail: 'Draf proposal melewati review dalam alur demo. Status human-reviewed pada contoh tidak berarti ada persetujuan bisnis atau publikasi.' },
+  { number: '03', name: 'AI Design Director', detail: 'website-spec.json merumuskan arah Utilitarian Workshop Clarity: hierarki mudah dipindai, grid tegas, dan ilustrasi konseptual.' },
+  { number: '04', name: 'Codex', detail: 'Desain diintegrasikan ke salinan lokal Ruang Reka; configurator mempertahankan preview serta impor dan ekspor JSON.' },
+  { number: '05', name: 'QA', detail: 'Tes sumber, build, browser desktop dan mobile, keyboard, axe, Lighthouse lokal, serta restore arsip didokumentasikan.' },
+];
+---
+<BaseLayout title="Bengkel Rapi — Studi Kasus Demo | Rakit Nalar Studio" description="Bengkel Rapi adalah fictional business demo dan AI-assisted website workflow experiment oleh Iqbal. Bukan proyek klien atau bisnis aktif.">
+  <section class="br-hero section-pad" aria-labelledby="br-title">
+    <div class="container br-hero-grid">
+      <div>
+        <a class="cs-back" href="/#work"><span aria-hidden="true">←</span> Kembali ke Selected Work</a>
+        <p class="eyebrow">02 / FICTIONAL BUSINESS DEMO</p>
+        <h1 id="br-title">Bengkel Rapi<span class="cs-period">.</span><br/><em>Dari brief ke demo web.</em></h1>
+        <p class="cs-lead">Eksperimen alur pembuatan website berbantuan AI, dari brief fiktif sampai hasil lokal yang dapat ditinjau dan diuji.</p>
+        <p class="cs-disclaimer"><strong>Fictional business demo · AI-assisted website workflow experiment.</strong> Bengkel Rapi bukan bisnis aktif, pekerjaan klien berbayar, atau bukti hasil komersial. Kontak tetap nonaktif.</p>
+        <a class="button button-dark" href="#process">Telusuri proses <span aria-hidden="true">↘</span></a>
+      </div>
+      <figure class="br-hero-shot">
+        <img src="/images/bengkel-rapi/desktop.png" alt="Screenshot desktop website demo fiktif Bengkel Rapi dengan ilustrasi kendaraan konseptual" width="1440" height="900" />
+        <figcaption>Screenshot build demo lokal · desktop 1440 × 900</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-meta-strip" aria-label="Ringkasan studi kasus">
+    <div class="container cs-meta-grid">
+      <div><span>STATUS</span><strong>Demo fiktif</strong></div>
+      <div><span>METHOD</span><strong>Brief → Proposal → AI → Code → QA</strong></div>
+      <div><span>OUTPUT</span><strong>Website + configurator JSON</strong></div>
+      <div><span>PUBLICATION</span><strong>Review saja · noindex</strong></div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="challenge" aria-labelledby="br-challenge-title">
+    <div class="container cs-story-grid">
+      <div class="cs-section-sidebar"><p class="eyebrow">01 / BRIEF</p><span class="cs-section-no" aria-hidden="true">01</span></div>
+      <div class="cs-story-copy">
+        <h2 id="br-challenge-title">Informasi layanan yang <em>mudah dipindai.</em></h2>
+        <p>Brief contoh menggambarkan pengunjung yang perlu memahami layanan perawatan kendaraan, menyiapkan data kendaraannya, dan menemukan panduan kunjungan di layar ponsel. Nomor kontak, jam operasional, foto bengkel, dan hasil pekerjaan nyata belum diverifikasi. Karena itu seluruh materi bisnis diperlakukan sebagai data demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad br-process" id="process" aria-labelledby="br-process-title">
+    <div class="container">
+      <div class="section-heading editorial-heading"><div><p class="eyebrow">02 / WORKFLOW</p><h2 id="br-process-title">Lima tahap. <em>Jejak keputusan.</em></h2></div><p>Alur ini menggambarkan artefak demo lokal yang tersedia. Review proposal contoh tidak sama dengan persetujuan publikasi.</p></div>
+      <ol class="br-steps">{steps.map((step) => <li><span>{step.number}</span><div><h3>{step.name}</h3><p>{step.detail}</p></div></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section-pad br-visual" id="visual" aria-labelledby="br-visual-title">
+    <div class="container">
+      <div class="section-heading editorial-heading"><div><p class="eyebrow">03 / VISUAL OUTPUT</p><h2 id="br-visual-title">Satu demo. <em>Dua ukuran layar.</em></h2></div><p>Screenshot dari build lokal. Ilustrasi kendaraan adalah placeholder konseptual, bukan foto fasilitas atau pekerjaan pelanggan.</p></div>
+      <div class="br-shots">
+        <figure><img src="/images/bengkel-rapi/desktop.png" alt="Tampilan desktop demo Bengkel Rapi dengan headline layanan dan ilustrasi kendaraan konseptual" width="1440" height="900" loading="lazy" /><figcaption>Desktop · 1440 × 900</figcaption></figure>
+        <figure><img src="/images/bengkel-rapi/mobile.png" alt="Tampilan mobile demo Bengkel Rapi dengan navigasi dan headline layanan" width="390" height="844" loading="lazy" /><figcaption>Mobile · 390 × 844</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad br-results" id="results" aria-labelledby="br-results-title">
+    <div class="container cs-story-grid">
+      <div class="cs-section-sidebar"><p class="eyebrow">04 / LOCAL QA</p><span class="cs-section-no" aria-hidden="true">04</span></div>
+      <div class="cs-story-copy">
+        <h2 id="br-results-title">Hasil teknis, <em>bukan hasil bisnis.</em></h2>
+        <p>Laporan QA lokal 12 November 2026 mencatat tes sumber dan build lulus, menu mobile dan FAQ berfungsi, serta impor/ekspor JSON configurator lulus roundtrip tanpa kehilangan nilai. Axe menemukan 0 pelanggaran WCAG yang terdeteksi pada halaman utama dan configurator di viewport yang diuji. Lighthouse lokal memberi Performance, Accessibility, dan Best Practices 100 pada desktop dan mobile; SEO 63 karena <code>noindex</code> sengaja aktif. Skor sintetis ini tidak mewakili semua perangkat atau kondisi jaringan.</p>
+        <p>Dokumentasi sumber juga mencatat 18 aset build mendapat HTTP 200 setelah restore arsip. Screenshot dan laporan QA berasal dari salinan integrasi lokal, bukan deployment atau situs bisnis nyata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad br-limits" id="limits" aria-labelledby="br-limits-title">
+    <div class="container cs-story-grid">
+      <div class="cs-section-sidebar"><p class="eyebrow">05 / LIMITS</p><span class="cs-section-no" aria-hidden="true">05</span></div>
+      <div class="cs-story-copy">
+        <h2 id="br-limits-title">Batas yang masih <em>perlu diverifikasi.</em></h2>
+        <ul>
+          <li>Konten bisnis, identitas usaha, dan hak aset untuk publikasi atau penggunaan komersial belum disetujui.</li>
+          <li>Kontak, pemesanan, analytics, domain, dan indexing tidak diaktifkan.</li>
+          <li>Uji screen reader, perangkat fisik, browser lain, serta pemeriksaan kontras manual pada elemen di atas gambar/gradien masih diperlukan.</li>
+          <li>Tidak ada data konversi, testimoni, atau hasil pelanggan yang dapat diklaim.</li>
+        </ul>
+        <a class="button button-dark" href="/#work">Kembali ke studi kasus <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
