@@ -28,9 +28,11 @@ jobs:
           test -f dist/index.html
           test -f dist/work/ruang-reka/index.html
           test -f dist/work/bengkel-rapi/index.html
+          test -f dist/layanan/index.html
           grep -q 'noindex,nofollow' dist/index.html
           grep -q 'noindex,nofollow' dist/work/ruang-reka/index.html
           grep -q 'noindex,nofollow' dist/work/bengkel-rapi/index.html
+          grep -q 'noindex,nofollow' dist/layanan/index.html
           grep -q 'Disallow: /' dist/robots.txt
       - name: Install browser test dependencies
         run: |
@@ -50,6 +52,7 @@ jobs:
           node tests/homepage-browser.mjs
           node tests/case-study-browser.mjs
           node tests/bengkel-rapi-browser.mjs
+          node tests/offering-browser.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
