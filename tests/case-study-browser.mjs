@@ -2,9 +2,10 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
+import { fileURLToPath } from 'node:url';
 
 await mkdir(new URL('../artifacts/screenshots/',import.meta.url), { recursive: true });
-const browser = await chromium.launch({headless:true});
+const browser = await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROME_CHANNEL ? {channel:process.env.PLAYWRIGHT_CHROME_CHANNEL} : {})});
 try {
   for (const width of [320,375,768,1024,1280]) {
     const context = await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});
@@ -64,7 +65,7 @@ try {
     assert.match(await page.locator('#evidence').innerText(),/homepage demo Ruang Reka/);
     assert.match(await page.locator('#challenge').innerText(),/fiktif/);
     if(width===375||width===1280){
-      await page.screenshot({path:new URL('../artifacts/screenshots/p3-ruang-reka-'+width+'.png',import.meta.url).pathname,fullPage:true,animations:'disabled'});
+      await page.screenshot({path:fileURLToPath(new URL('../artifacts/screenshots/p3-ruang-reka-'+width+'.png',import.meta.url)),fullPage:true,animations:'disabled'});
     }
     console.log('PASS P3 case study '+width+'px: source links, semantics, keyboard, responsive, axe WCAG 0 violations');
     await context.close();

@@ -11,9 +11,9 @@ test('P4: prelaunch indexing safety remains enabled', async () => {
   assert.match(robots, /^Disallow: \/$/m);
 });
 
-test('P4: no invented creator identity or business contact', async () => {
+test('P5: named creator without invented role or business contact', async () => {
   const site = await read('src/data/site.ts');
-  assert.match(site, /creator: null/);
+  assert.match(site, /creator: 'Iqbal'/);
   assert.match(site, /enabled:\s*false/);
   assert.match(site, /email:\s*''/);
   assert.doesNotMatch(site, /creator:\s*['"](?:CEO|Founder|John Doe)['"]/i);
@@ -26,7 +26,7 @@ test('P4: release blockers and separate deployment approval documented', async (
   const technical = await read('docs/P4-TECHNICAL-AUDIT.md');
   assert.match(audit, /NO-GO for public launch/);
   assert.match(audit, /rights/i);
-  assert.match(identity, /creator: null/);
+  assert.match(identity, /creator: null/); // Historical P4 decision, superseded by P5 brand architecture.
   assert.match(identity, /konfigurasi reusable/);
   assert.match(roadmap, /NOT EXECUTED/);
   assert.match(roadmap, /separate explicit approval/);

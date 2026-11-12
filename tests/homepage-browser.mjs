@@ -2,9 +2,10 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
+import { fileURLToPath } from 'node:url';
 
 await mkdir(new URL('../artifacts/screenshots/',import.meta.url),{recursive:true});
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROME_CHANNEL ? {channel:process.env.PLAYWRIGHT_CHROME_CHANNEL} : {})});
 try {
   for(const width of [320,375,768,1280]){
     const context=await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});
@@ -17,7 +18,8 @@ try {
     assert.equal(await page.locator('h1').count(),1);
     assert.equal(await page.locator('.capability-card').count(),3);
     assert.equal(await page.locator('.method-list li').count(),5);
-    assert.equal(await page.getByRole('link',{name:/Baca studi kasus/}).count(),2);
+    assert.equal(await page.getByRole('link',{name:/Baca studi kasus/}).count(),3);
+    assert.equal(await page.locator('.project-card').count(),2);
     assert.equal(await page.getByRole('link',{name:/Diskusikan ide|Diskusi proyek/}).count(),0);
     assert.equal(await page.getByRole('link',{name:/Pelajari studi kasus/}).getAttribute('href'),'/work/ruang-reka/');
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
@@ -59,7 +61,7 @@ try {
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
     await page.goBack({waitUntil:'load'});
     if(width===375||width===1280){
-      await page.screenshot({path:new URL('../artifacts/screenshots/p2-homepage-'+width+'.png',import.meta.url).pathname,fullPage:true,animations:'disabled'});
+      await page.screenshot({path:fileURLToPath(new URL('../artifacts/screenshots/p2-homepage-'+width+'.png',import.meta.url)),fullPage:true,animations:'disabled'});
     }
     console.log('PASS P2 homepage '+width+'px: responsive, anchors, semantics, noindex, axe zero WCAG violations');
     await context.close();

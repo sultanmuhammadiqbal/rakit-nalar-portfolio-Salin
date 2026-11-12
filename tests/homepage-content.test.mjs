@@ -25,7 +25,7 @@ test('P2 remains explicitly an independent demo without fabricated contacts', as
   const data = await read('src/data/site.ts');
   const cta = await read('src/components/ContactCTA.astro');
   assert.match(page, /bukan hasil pekerjaan untuk klien/);
-  assert.match(page, /Bukan proyek berbayar/);
+  assert.match(page, /bukan proyek berbayar/i);
   assert.match(page, /bukan portofolio klien/);
   assert.match(data, /enabled: false/);
   assert.match(cta, /contact-disabled/);
@@ -33,7 +33,8 @@ test('P2 remains explicitly an independent demo without fabricated contacts', as
   assert.match(page, /Pelajari studi kasus/);
   const header = await read('src/components/Header.astro');
   assert.match(header, /Studi kasus/);
-  assert.match(data, /creator: null/);
+  assert.match(data, /creator: 'Iqbal'/);
+  assert.match(page, /Bengkel Rapi/);
   assert.doesNotMatch(page, /\[Nama Profesional\]/);
 });
 
