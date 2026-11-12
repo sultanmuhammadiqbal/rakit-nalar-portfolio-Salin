@@ -35,10 +35,10 @@ try {
     await page.keyboard.press('Tab');
     assert.equal(await page.locator(':focus').getAttribute('href'), '#main-content');
     await page.keyboard.press('Enter');
-    assert.equal(new URL(page.url()).hash, '#main-content');
+    await page.waitForURL(url => url.hash === '#main-content');
     await page.getByRole('link', {name:/Telusuri proses/}).focus();
     await page.keyboard.press('Enter');
-    assert.equal(new URL(page.url()).hash, '#process');
+    await page.waitForURL(url => url.hash === '#process');
     if (width === 375 || width === 1280) await page.screenshot({path:fileURLToPath(new URL(`../artifacts/screenshots/p5-bengkel-rapi-${width}.png`, import.meta.url)), fullPage:true, animations:'disabled'});
     console.log(`PASS P5 Bengkel Rapi ${width}px: page, assets, semantics, keyboard, axe`);
     await context.close();

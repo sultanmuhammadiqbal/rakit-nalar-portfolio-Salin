@@ -42,10 +42,10 @@ try {
     await page.keyboard.press('Tab');
     assert.equal(await page.locator(':focus').getAttribute('href'),'#main-content');
     await page.keyboard.press('Enter');
-    assert.equal(new URL(page.url()).hash,'#main-content');
+    await page.waitForURL(url => url.hash === '#main-content');
     await page.getByRole('link',{name:/Telusuri studi kasus/}).focus();
     await page.keyboard.press('Enter');
-    assert.equal(new URL(page.url()).hash,'#challenge');
+    await page.waitForURL(url => url.hash === '#challenge');
     if(width<=375){
       for(const selector of ['.cs-milestone a','.cs-benefits-grid a']){
         const links=page.locator(selector);

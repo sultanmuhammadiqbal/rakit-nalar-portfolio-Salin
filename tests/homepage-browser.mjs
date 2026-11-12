@@ -44,9 +44,9 @@ try {
     assert.notEqual(focusStyle.outline,'none','Focused skip link must have visible outline');
     assert.ok(focusStyle.rect.y>=0&&focusStyle.rect.width>0,'Focused skip link visible');
     await page.keyboard.press('Enter');
-    assert.equal(new URL(page.url()).hash,'#main-content');
+    await page.waitForURL(url => url.hash === '#main-content');
     await page.getByRole('link',{name:/Eksplorasi karya/}).click();
-    assert.equal(new URL(page.url()).hash,'#work');
+    await page.waitForURL(url => url.hash === '#work');
     if(width<=375){
       const links=page.locator('.navigation a');
       for(let i=0;i<await links.count();i++){
